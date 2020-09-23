@@ -1,0 +1,9 @@
+---
+- name: CleanUp Wsus Server Job
+  hosts: all
+  tasks:
+  - name: WSUS CleanUp
+    win_shell: 
+    register: output
+
+  - debug: var=output.stdout_lines
