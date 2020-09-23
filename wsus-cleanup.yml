@@ -10,8 +10,8 @@
 
   - name: WSUS CleanUp
     win_shell: .\cleanupwsus.ps1
-      args:
-        chdir: C:\temp
+    args:
+      chdir: C:\temp
     register: output
 
   - debug: var=output.stdout_lines
