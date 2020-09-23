@@ -2,8 +2,16 @@
 - name: CleanUp Wsus Server Job
   hosts: all
   tasks:
+  
+  - name: Copiando Script para pasta Temp
+  win_copy: 
+    src: ./cleanupwsus.ps1
+    dest: C:\temp\
+
   - name: WSUS CleanUp
-    win_shell: 
+    win_shell: .\cleanupwsus.ps1
+      args:
+        chdir: C:\temp
     register: output
 
   - debug: var=output.stdout_lines
